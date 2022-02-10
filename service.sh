@@ -22,4 +22,5 @@ nginxstatus=$(systemctl status nginx | grep -Eo "running|dead|failed")
             systemctl restart nginx # перезапуск nginx
             sleep 1 #ожидаем 1 секунду
             echo -en "${WHITE} ${BGGREEN} Статус nginx после перезапуска $(systemctl status nginx | grep -Eo "running|dead|faoled") $(NORMAL)\n"
+            curl -I 192.168.1.156 | grep OK # Опрос сервиса nginx
     fi
