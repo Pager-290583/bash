@@ -19,4 +19,6 @@ nginxstatus=$(systemctl status nginx | grep -Eo "running|dead|failed")
             echo -en  "${WHITE} ${BGGREEN} Веб сервер работает ${NORMAL}\n"
         else
             echo -en "${WHITE} ${BGRED} nginx не работает ${NORMAL}\n"
+            systemctl restart nginx # перезапуск nginx
+            sleep 1 #ожидаем 1 секунду
     fi
